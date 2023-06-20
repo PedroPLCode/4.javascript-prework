@@ -1,5 +1,3 @@
-// var argMoveId, argPlayerMove, argComputerMove, computerMove, playerMove, randomNumber, playerInput;
-
 function printMessage(msg){
 	var div = document.createElement('div');
 	div.innerHTML = msg;

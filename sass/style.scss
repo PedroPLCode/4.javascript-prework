@@ -1,9 +1,13 @@
 /* Variables */
 
-$font-one:'Arial', sans-serif;
-$color-one: white;
+$font-one: 'Orbitron', sans-serif;
+$font-two: 'Press Start 2P', sans-serif;
 
-$transition: 1s all;
+$color-one: rgb(231, 231, 126);
+$color-three: rgb(169, 240, 169);
+$color-four: rgb(0, 0, 0);
+
+$transition: 0.5s all;
 
 /* Styles */
 
@@ -18,6 +22,7 @@ body {
     font-size: 16px;
     line-height: 1.7;
     font-family: $font-one;
+    color: $color-three;
 
   }
   
@@ -25,7 +30,7 @@ body {
     max-width: 1140px;
     width: 100%;
     height: 100vh;
-    padding: 256px;
+    padding: 0px 256px;
     margin: auto;
     justify-content: center;
   }
@@ -45,62 +50,69 @@ section {
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        border: 2px solid red;
     
         h2 {
             width: 100%;
             text-align: center;
-            color: $color-one;
         }
     
         p {
             width: 100%;
             text-align: center;
-            color: $color-one;
         }
     
         a:first-of-type {
-            width: 100%;
+            width: auto;
             text-decoration: none;
+            color: $color-three;
+            border: 2px solid $color-three;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: $transition;
+            padding: 8px;
+            margin: 32px;
 
             i {
-                color: green;
 
             }
         }
 
         a:first-of-type:hover {
             cursor: pointer;
-            transform: scale(1.2);
+            color: $color-one;
+            border: 2px solid $color-one;
         }
 
         a:last-of-type {
-            width: 92px;
-            height: 92px;
+            width: 128px;
+            height: 128px;
             border-radius: 50%;
-            background-color: green;
-            border: 2px solid blue;
+            background-color: $color-three;
+            border: none;
+            color: $color-four;
             text-decoration: none;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             transition: $transition;
     
-            i {
-    
+            i:first-of-type {
+                width: 100%;
+                text-align: center;
             }
             
+            i:last-of-type {
+                width: 100%;
+                font-family: $font-two;
+                text-align: center;
+            }
         }
     
         a:last-of-type:hover {
             cursor: pointer;
             transform: scale(1.2) rotate(720deg);
-            background-color: red;
-            color: yellow;
+            background-color: $color-one;
         }
     }
 }
@@ -108,17 +120,15 @@ section {
 /* Game */
 
 .game {
-    border: 2px solid red;
+    background-color:  black;
 
     .container {
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 2px solid red;
 
         .game-inner {
             width: 100%;
-            border: 2px solid red;
 
             .buttons {
                 display: flex;
@@ -133,35 +143,120 @@ section {
                     align-items: center;
                     height: 128px;
                     width: 128px;
-                    background-color: aqua;
-                    color:azure;
+                    background-color: $color-three;
+                    color: $color-four;
+                    font-family: $font-two;
+                    border: none;
                     border-radius: 5%;
+                    text-decoration: none;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    i:first-of-type {
+                        width: 100%;
+                        font-size: 96px;
+                        text-align: center;
+                    }
+                    
+                    i:last-of-type {
+                        width: 100%;
+                        font-family: $font-two;
+                        text-align: center;
+                    }
                 }
             
                 button:hover {
                     cursor: pointer;
-                    color: black;
+                    background-color: $color-one;
                 }
+
             }
 
             .results {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                h4 {
+                    text-align: center;
+                }
 
                 .results-inner {
-
+                    margin: auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    width: 408px;
+                    height: 200px;
+                    border: 2px solid $color-three;
+                    text-align: center;
                 }
             }
 
             .back {
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
 
-                a {
-                    border: 2px solid red;
+                a:first-of-type {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    font-size: 12px;
+                    color: $color-three;
+                    text-decoration: none;
+                    padding: 8px;
+                    width: 408px;
+                    margin: 32px auto;
+                    border: 2px solid $color-three;
 
-                    i {
-                        border: 2px solid red;
+                    i:first-of-type {
+                        width: 100%;
+                        font-size: 28px;
+                        text-align: center;
+                    }
+                    
+                    i:last-of-type {
+                        width: 100%;
+                        font-family: $font-two;
+                        text-align: center;
                     }
                 }
+
+                a:first-of-type:hover {
+                    color: $color-one;
+                    border: 2px solid $color-one;
+                }
+
+                p {
+                    text-align: center;
+                }
+
+                a:last-of-type {
+                    width: 408px;
+                    display: flex;
+                    justify-content: center;
+                    text-decoration: none;
+                    margin: 32px auto;
+
+
+                    i {
+                        font-size: 18px;
+                        text-align: center;
+                        color: $color-three;
+                        padding: 8px;
+                        border: 2px solid $color-three;
+                    }
+                }
+
+                a:last-of-type:hover i {
+                cursor: pointer;
+                color: $color-one;
+                border: 2px solid $color-one;
+        }
             }
         }
     }

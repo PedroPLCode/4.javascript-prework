@@ -11,3 +11,6 @@ buttonPaper.addEventListener('click', function(){ buttonClicked('papier'); });
 buttonScissors = document.getElementById('button-scissors');
 buttonScissors.addEventListener('click', function(){ buttonClicked('nożyce'); });
 
+buttonReset = document.getElementById('button-reset');
+buttonReset.addEventListener('click', function(){ resetCounter(scorePlayer, scoreComputer, counter); });
+

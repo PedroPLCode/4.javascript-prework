@@ -3,25 +3,44 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Kamień, papier, nożyce</title>
-    <link rel="stylesheet" href="vendor/bootstrap-grid.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <div class="game">
+    <section class="description">
         <div class="container">
-            <div class="row">
-                <div class="col-12 description">Opis gry.</div>
-                <div class="col-12 buttons" id="buttons">
-                    <button id="button-rock">Kamień</button>
-                    <button id="button-paper">Papier</button>
-                    <button id="button-scissors">Nożyce</button>
-                </div>
-                <div class="col-12 results" id="messages">Wyniki gry.</div>
+            <div class="description-inner">
+                <h2>naglowek</h2>
+                <p>opis</p>
+                <a href="wikipedia.org"><i>Game history on wikipedia</i></a>
+                <a href="#game"><i>Start Game!</i></a>
             </div>
         </div>
-    </div>
 
+    <a name="game"></a>
+    <section class="game">
+        <div class="container">
+            <div class="game-inner">
+
+                <div class="buttons" id="buttons">
+                    <button type="button" id="button-rock">Rock</button>
+                    <button type="button" id="button-paper">Paper</button>
+                    <button type="button" id="button-scissors">Scissors</button>
+                </div>
+
+                <div class="results">
+                    <h4>Game results shown below.</h4>
+                    <div class="results-inner" id="messages"></div>
+                </div>
+
+                <div class="back">
+                    <a href="#top"><i>Back to Start Page!</i></a>
+                </div>
+
+            </div>    
+        </div>
+    </div>
+        
 	<script src="js/functions.js"></script>
 	<script src="js/script.js"></script>
 </body>

@@ -28,24 +28,49 @@ function getMoveName(argMoveId) {
     }
   }
   
-  function displayResult(argPlayerMove, argComputerMove) {
+  function displayResult(argPlayerMove, argComputerMove, scorePlayer, scoreComputer, counter) {
       console.log('wywołano funkcję displayResults z argumentami: ' + argPlayerMove + ', ' + argComputerMove);
       if (argPlayerMove == 'papier' && argComputerMove == 'kamień') {
           printMessage('Wygrywasz!');
+          scorePlayer = scorePlayer +1;
+          counter = counter +1;
       }
       else if (argPlayerMove == 'kamień' && argComputerMove == 'nożyce') {
           printMessage('Wygrywasz!');
+          scorePlayer = scorePlayer +1;
+          counter = counter +1;
       }
       else if (argPlayerMove == 'nożyce' && argComputerMove == 'papier') {
           printMessage('Wygrywasz!');
+          scorePlayer = scorePlayer +1;
+          counter = counter +1;
       }
       else if (argPlayerMove == argComputerMove) {
           printMessage('Mamy remis.');
+          counter = counter +1;
       }
       else {
           printMessage('Przegrywasz.');
+          scoreComputer = scoreComputer +1;
+          counter = counter +1;
       }
       printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
+      printMessage('Round: ' + counter);
+      printMessage('Scoreboard:')
+      printMessage('Human: ' + scorePlayer + ' / Computer: ' + scoreComputer);
+      printMessage('Try again!')
+  }
+
+  function resetCounter(scorePlayer, scoreComputer, counter) {
+    scorePlayer = 0;
+    scoreComputer = 0;
+    counter = 0;
+  }
+
+  function displayCounter(scorePlayer, scoreComputer, counter) {
+    scorePlayer = 0;
+    scoreComputer = 0;
+    counter = 0;
   }
 
 /**

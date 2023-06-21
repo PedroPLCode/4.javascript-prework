@@ -1,5 +1,6 @@
 var argMoveId, argPlayerMove, argComputerMove, computerMove, playerMove, randomNumber, playerInput;
-var argButtonName, buttonTest, buttonRock, buttonPaper, buttonScissors;
+var argButtonName, buttonRock, buttonPaper, buttonScissors;
+var scorePlayer, scoreComputer, counter;
 
 buttonRock = document.getElementById('button-rock');
 buttonRock.addEventListener('click', function(){ buttonClicked('kamień'); });

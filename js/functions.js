@@ -28,7 +28,8 @@ function getMoveName(argMoveId) {
     }
   }
   
-  function displayResult(argPlayerMove, argComputerMove, scorePlayer, scoreComputer, counter) {
+  
+  function displayResult(argPlayerMove, argComputerMove, argScorePlayer, argScoreComputer, argCounter) {
       console.log('wywołano funkcję displayResults z argumentami: ' + argPlayerMove + ', ' + argComputerMove);
       if (argPlayerMove == 'papier' && argComputerMove == 'kamień') {
           printMessage('Wygrywasz!');
@@ -55,26 +56,31 @@ function getMoveName(argMoveId) {
           counter++;
       }
       printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
-      printMessage('Round: ' + counter);
+      printMessage('Round: ' + argCounter);
       printMessage('Scoreboard:')
-      printMessage('Human: ' + scorePlayer + ' / Computer: ' + scoreComputer);
-      printMessage('Try again!')
+      printMessage('Human: ' + argScorePlayer + ' / Computer: ' + argScoreComputer);
+      printMessage('Play again!')
+      //return counter, scorePlayer, scoreComputer;
   }
 
-  function resetCounter(scorePlayer, scoreComputer, counter) {
+  function resetCounter(argScorePlayer, argScoreComputer, argCounter) {
+    console.log('reset klikniety');
     scorePlayer = 0;
     scoreComputer = 0;
     counter = 0;
+    console.log('counter' + counter + ' player ' + scorePlayer + ' comp ' + scoreComputer);
+    clearMessages();
+    //displayResult(playerMove, computerMove, argScorePlayer, argScoreComputer, argCounter);
   }
 
 /**
  * Describe this function...
  */
-function buttonClicked(argButtonName) {
+function buttonClicked(argButtonName, argScorePlayer, argScoreComputer, argCounter) {
     clearMessages();
     console.log(argButtonName + ' został kliknięty');
 
-    resetCounter(scorePlayer, scoreComputer, counter);
+    // resetCounter(scorePlayer, scoreComputer, counter);
 
     playerMove = argButtonName;
     console.log('wybór ruchu gracza to: ' + playerInput);
@@ -83,5 +89,5 @@ function buttonClicked(argButtonName) {
     console.log('wylosowana liczba to: ' + randomNumber);
     computerMove = getMoveName(randomNumber);
     console.log('ruch komputera to: ' + computerMove);
-    displayResult(playerMove, computerMove, scorePlayer, scoreComputer, counter);
+    displayResult(playerMove, computerMove, argScorePlayer, argScoreComputer, argCounter);
 }

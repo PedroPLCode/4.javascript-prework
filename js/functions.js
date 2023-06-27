@@ -1,5 +1,5 @@
 function printMessage(msg) {
-	var div = document.createElement('div');
+	let div = document.createElement('div');
 	div.innerHTML = msg;
 	document.getElementById('messages').appendChild(div);
 }
@@ -9,51 +9,42 @@ function clearMessages() {
 }
 
 /**
- * Gets move id and retuns move name as a string.
+ * Draw random computer move and retuns move name as a string.
  */
-function getMoveName(argMoveId) {
-  console.log('wywołano funkcję getMoveName z argumentem: ' + argMoveId);
-  if (argMoveId == 1) {
+function getCompMove() {
+  let randomNumber = Math.floor(Math.random() * 3 + 1);
+  if (randomNumber == 1) {
     return 'rock';
-  } else if (argMoveId == 2) {
+  } else if (randomNumber == 2) {
     return 'paper';
-  } else if (argMoveId == 3) {
-    return 'scissors';
   } else {
-    printMessage('Nie znam ruchu o id ' + argMoveId + '. Zakładam, że chodziło o "kamień".');
-    return 'rock';
+    return 'scissors';
   }
 }
 
 /**
  * Makes decision about result of the game and displays on the screen.
  */  
-function displayResult(argPlayerMove, argComputerMove, argScorePlayer, argScoreComputer, argCounter) {
-  console.log('wywołano funkcję displayResults z argumentami: ' + argPlayerMove + ', ' + argComputerMove);
-  scorePlayer = argScorePlayer;
-  scoreComputer = argScoreComputer;
-  counter = argCounter;
-  if (argPlayerMove == 'paper' && argComputerMove == 'rock') {
+function playGame(playerMove) {
+  let computerMove = getCompMove();
+  clearMessages();
+  if (playerMove == 'paper' && computerMove == 'rock') {
     printMessage('YOU WON!');
     scorePlayer++;
-    counter++;
-  } else if (argPlayerMove == 'rock' && argComputerMove == 'scissors') {
+  } else if (playerMove == 'rock' && computerMove == 'scissors') {
     printMessage('YOU WON!');
     scorePlayer++;
-    counter++;
-  } else if (argPlayerMove == 'scissors' && argComputerMove == 'paper') {
+  } else if (playerMove == 'scissors' && computerMove == 'paper') {
     printMessage('YOU WON!');
     scorePlayer++;
-    counter++;
-  } else if (argPlayerMove == argComputerMove) {
+  } else if (playerMove == computerMove) {
     printMessage('REMIS');
-    counter++;
   } else {
     printMessage('YOU LOSE');
     scoreComputer++;
-    counter++;
   }
-  printMessage('ai had ' + argComputerMove + ', human had ' + argPlayerMove);
+  counter++;
+  printMessage('comp had ' + computerMove + ', you had ' + playerMove);
   printMessage('round: ' + counter);
   printMessage('scoreboard:')
   printMessage('human: ' + scorePlayer + ' / computer: ' + scoreComputer);
@@ -63,36 +54,23 @@ function displayResult(argPlayerMove, argComputerMove, argScorePlayer, argScoreC
 /**
  * Reaction to reset button clicked by user. Clear scores and round counter.
  */
-function resetCounter(argScorePlayer, argScoreComputer, argCounter) {
-  console.log('reset klikniety');
-  scorePlayer = argScorePlayer;
-  scoreComputer = argScoreComputer;
-  counter = argCounter;
+function resetCounter() {
   scorePlayer = 0;
   scoreComputer = 0;
   counter = 0;
-  console.log('counter ' + counter + ' player ' + scorePlayer + ' comp ' + scoreComputer);
   clearMessages();
-  printMessage('reset')
-  printMessage('counter clear')
-  printMessage('scoreboard clear')
+  printMessage('reset');
+  printMessage('counter clear');
+  printMessage('scoreboard clear');
   }
 
 /**
  * Reaction to button clicked by user.
  */
-function buttonClicked(argButtonName, argScorePlayer, argScoreComputer, argCounter) {
-  clearMessages();
-  console.log(argButtonName + ' został kliknięty');
-  playerMove = argButtonName;
-  scorePlayer = argScorePlayer;
-  scoreComputer = argScoreComputer;
-  counter = argCounter;
-  console.log('wybór ruchu gracza to: ' + playerInput);
-  console.log('ruch gracza to: ' + playerMove);
-  randomNumber = Math.floor(Math.random() * 3 + 1);
-  console.log('wylosowana liczba to: ' + randomNumber);
-  computerMove = getMoveName(randomNumber);
-  console.log('ruch komputera to: ' + computerMove);
-  displayResult(playerMove, computerMove, scorePlayer, scoreComputer, counter);
+function buttonClicked(playerMove) {
+  if (playerMove == 'reset') {
+    resetCounter();
+  } else {
+    playGame(playerMove);
+  }
 }

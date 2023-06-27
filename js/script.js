@@ -1,15 +1,14 @@
-var argMoveId, argPlayerMove, argComputerMove, computerMove, playerMove, randomNumber, playerInput;
-var argButtonName, buttonRock, buttonPaper, buttonScissors;
-var scorePlayer = 0, scoreComputer = 0, counter = 0;
+const buttonScissors = document.getElementById('button-scissors'),
+      buttonPaper = document.getElementById('button-paper'),
+      buttonRock = document.getElementById('button-rock'),
+      buttonReset = document.getElementById('button-reset');
 
-buttonRock = document.getElementById('button-rock');
-buttonRock.addEventListener('click', function(){ buttonClicked('rock', scorePlayer, scoreComputer, counter); });
+let scorePlayer = 0, scoreComputer = 0, counter = 0;
 
-buttonPaper = document.getElementById('button-paper');
-buttonPaper.addEventListener('click', function(){ buttonClicked('paper', scorePlayer, scoreComputer, counter); });
+buttonRock.addEventListener('click', function(){ buttonClicked('rock'); });
 
-buttonScissors = document.getElementById('button-scissors');
-buttonScissors.addEventListener('click', function(){ buttonClicked('scissors', scorePlayer, scoreComputer, counter); });
+buttonPaper.addEventListener('click', function(){ buttonClicked('paper'); });
 
-buttonReset = document.getElementById('button-reset');
-buttonReset.addEventListener('click', function(){ resetCounter(scorePlayer, scoreComputer, counter); });
+buttonScissors.addEventListener('click', function(){ buttonClicked('scissors'); });
+
+buttonReset.addEventListener('click', function(){ buttonClicked('reset'); });

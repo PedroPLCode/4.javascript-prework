@@ -8,9 +8,6 @@ function clearMessages() {
 	document.getElementById('messages').innerHTML = '';
 }
 
-/**
- * Draw random computer move and retuns move name as a string.
- */
 function getCompMove() {
   let randomNumber = Math.floor(Math.random() * 3 + 1);
   if (randomNumber == 1) {
@@ -22,9 +19,6 @@ function getCompMove() {
   }
 }
 
-/**
- * Makes decision about result of the game and displays on the screen.
- */  
 function playGame(playerMove) {
   let computerMove = getCompMove();
   clearMessages();
@@ -51,9 +45,6 @@ function playGame(playerMove) {
   printMessage('play again!');
 }
 
-/**
- * Reaction to reset button clicked by user. Clear scores and round counter.
- */
 function resetCounter() {
   scorePlayer = 0;
   scoreComputer = 0;
@@ -64,9 +55,6 @@ function resetCounter() {
   printMessage('scoreboard clear');
   }
 
-/**
- * Reaction to button clicked by user.
- */
 function buttonClicked(playerMove) {
   if (playerMove == 'reset') {
     resetCounter();
